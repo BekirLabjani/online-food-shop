@@ -1,0 +1,8 @@
+<div class="product-card" *ngIf="product">
+    <img [src]="product.image" alt="Produktbild" class="product-image" />
+    
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <span class="price">{{ product.price | currency:'EUR' }}</span>
+  </div>
+  
