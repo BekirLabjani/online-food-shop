@@ -3,7 +3,7 @@
     display: flex; /* Karten nebeneinander */
     justify-content: space-between; /* Abstand zwischen Karten */
     gap: 20px; /* Abstand zwischen den Karten */
-    padding: 20px; /* Innenabstand */
+    padding: 20px 0px; /* Innenabstand */
     width: 100%;
     margin: auto;
 }

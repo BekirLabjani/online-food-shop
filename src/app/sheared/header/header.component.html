@@ -11,9 +11,16 @@
         <button class="search-button">Search</button>
     </div>
     <div class="basket">
-        <button mat-fab extended>
+        <button mat-fab extended (click)="toggleSidebar()">
             <mat-icon>shopping_basket</mat-icon>
             € 00.00
         </button>
     </div>
 </header>
+<div class="sidebar" [class.open]="isSidebarOpen">
+    <button class="close-button" (click)="closeSidebar()"><img src="./assets/img/header-icon/remove-green.svg" alt=""></button>
+        <app-basket-list></app-basket-list>
+  </div>
+  
+  <!-- Overlay -->
+  <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>

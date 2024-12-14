@@ -1,8 +1,28 @@
 <div class="product-card" *ngIf="product">
-    <img [src]="product.image" alt="Produktbild" class="product-image" />
-    
-    <h3>{{ product.name }}</h3>
-    <p>{{ product.description }}</p>
-    <span class="price">{{ product.price | currency:'EUR' }}</span>
-  </div>
+  <img [src]="product.image" alt="Produktbild" class="product-image" />
   
+  <div class="product-inofmation-price">
+    <span class="price">{{ product.price | currency:'EUR' }}</span>
+    <h3>{{ product.name }}</h3>
+    <div class="gray-text">
+      <div class="F">
+        <span>€ 7,58 / kg</span>
+        <div>Packung 500g</div>
+      </div>
+      
+      <!-- Menge-Anzeige und Minus-Button, nur wenn quantity > 0 -->
+      <span class="quantity-display" *ngIf="quantity > 0">
+        {{ quantity }}
+      </span>
+      
+      <button class="minus-button" *ngIf="quantity > 0" (click)="decrement()">
+        <img src="./assets/img/remove_circle.png" alt="Minus">
+      </button>
+      
+      <!-- Plus-Button -->
+      <button class="add-to-basket" (click)="increment()">
+        <img src="./assets/img/add_circle.png" alt="Plus">
+      </button>
+    </div>
+  </div>
+</div>

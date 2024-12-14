@@ -3,25 +3,41 @@ import { HttpClient } from '@angular/common/http';
 import { PrdctList } from '../../models/prdct-list';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { CartService } from '../../services/cart.service';
 
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
-export class ProductCardComponent implements OnInit {
-  // Du kannst das Produkt von außerhalb per @Input() reinreichen
-  @Input() product: PrdctList | undefined;
+export class ProductCardComponent  {
+  @Input() product!: PrdctList;
 
-  constructor() { }
+  quantity: number = 0;
 
-  ngOnInit(): void {
-    // Optional: Falls du dynamisch Daten laden willst, mach das über einen Service oder MainPage
+  constructor(private cartService: CartService) {}
+
+  increment() {
+    this.quantity++;
+    this.updateCart();
+  }
+
+  decrement() {
+    if (this.quantity > 0) {
+      this.quantity--;
+      this.updateCart();
+    }
+  }
+
+  updateCart() {
+    const productToAdd: PrdctList = { ...this.product, quantity: this.quantity };
+    this.cartService.addToCart(productToAdd);
   }
 }
-

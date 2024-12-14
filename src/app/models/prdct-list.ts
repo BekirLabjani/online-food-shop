@@ -2,6 +2,8 @@ export interface PrdctList {
     id: number;
     name: string;
     price: number;
+    pricePerKg: number;
     image: string;
-    description: string;
-}
+    package: string;
+    quantity: number; // Hinzugefügt für die Menge
+  }
