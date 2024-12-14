@@ -1,38 +1,43 @@
+<!-- src/app/sidebar/sidebar.component.html -->
 <div class="sidebar" [class.open]="isSidebarOpen">
-    <h2>Warenkorb</h2>
-    
-    <ul>
-      <li *ngFor="let item of cartItems" class="product-in-basket_v1">
-        <div class="prudoct-img-basket">
-          <img [src]="item.image" alt="{{ item.name }}" />
-        </div>
-        <div class="product-information-amounts">
-          <div class="product-information">
-            <div class="prodct-name-basket">
-              <span>{{ item.name }}</span>
-              <span>{{ item.package }}</span>
-            </div>
-            <div class="prodct-price-basket">
-              <span>{{ (item.price * item.quantity) | currency:'EUR' }}</span>
-            </div>
-          </div>
-          <div class="amount-product-basket">
-            <div class="price-prodct">
-              <span>{{ (item.price * item.quantity) | currency:'EUR' }}</span>
-            </div>
-            <span class="price-to-Kg">€ {{ item.pricePerKg | number:'1.2-2' }} / kg</span>
-          </div>
-        </div>
-        <button (click)="removeItem(item.id)" class="remove-button">
-          <img src="./assets/img/remove_circle.png" alt="Remove">
-        </button>
-      </li>
-      <div class="line" *ngIf="cartItems.length > 0"></div>
-    </ul>
+  <!-- Close-Button mit Bild -->
+  <button class="close-button" (click)="closeSidebar()">
+    <img src="./assets/img/header-icon/remove-green.svg" alt="Close" />
+  </button>
+
+  <h2>Warenkorb</h2>
   
-    <div class="total-price" *ngIf="cartItems.length > 0">
-      <span>Gesamt:</span>
-      <span>{{ getTotalPrice() | currency:'EUR' }}</span>
-    </div>
+  <ul>
+    <li *ngFor="let item of cartItems" class="product-in-basket_v1">
+      <div class="prudoct-img-basket">
+        <img [src]="item.image" alt="{{ item.name }}" />
+      </div>
+      <div class="product-information-amounts">
+        <div class="product-information">
+          <div class="prodct-name-basket">
+            <span>{{ item.name }}</span>
+            <span>{{ item.package }}</span>
+          </div>
+          <div class="prodct-price-basket">
+            <span>{{ (item.price * item.quantity) | currency:'EUR' }}</span>
+          </div>
+        </div>
+        <div class="amount-product-basket">
+          <div class="price-prodct">
+            <span>{{ (item.price * item.quantity) | currency:'EUR' }}</span>
+          </div>
+          <span class="price-to-Kg">€ {{ item.pricePerKg | number:'1.2-2' }} / kg</span>
+        </div>
+      </div>
+      <button (click)="removeItem(item.id)" class="remove-button">
+        <img src="./assets/img/remove_circle.png" alt="Remove">
+      </button>
+    </li>
+    <div class="line" *ngIf="cartItems.length > 0"></div>
+  </ul>
+
+  <div class="total-price" *ngIf="cartItems.length > 0">
+    <span>Gesamt:</span>
+    <span>{{ getTotalPrice() | currency:'EUR' }}</span>
   </div>
-  
+</div>

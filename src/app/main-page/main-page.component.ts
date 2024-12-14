@@ -26,5 +26,18 @@ import { ProductListComponent } from './product-list/product-list.component';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
- 
+  products: PrdctList[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http.get<PrdctList[]>('assets/products.json')
+      .subscribe(data => {
+        // Initialisiere die 'quantity' für jedes Produkt
+        this.products = data.map(product => ({
+          ...product,
+          quantity: 0
+        }));
+      });
+  }
 }

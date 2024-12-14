@@ -7,10 +7,7 @@ import { PrdctList } from '../models/prdct-list';
   providedIn: 'root'
 })
 export class CartService {
-  // BehaviorSubject speichert den aktuellen Zustand des Warenkorbs
   private cartItemsSubject: BehaviorSubject<PrdctList[]> = new BehaviorSubject<PrdctList[]>([]);
-  
-  // Observable, das von anderen Komponenten abonniert werden kann
   public cartItems$: Observable<PrdctList[]> = this.cartItemsSubject.asObservable();
 
   constructor() { }
@@ -22,23 +19,34 @@ export class CartService {
     
     if (existingProduct) {
       // Falls das Produkt bereits im Warenkorb ist, erhöhe die Menge
-      existingProduct.quantity += product.quantity;
+      existingProduct.quantity += 1;
     } else {
       // Ansonsten füge das Produkt hinzu
-      currentCart.push(product);
-    }
+      currentCart.push({ ...product, quantity: 1 });    }
     
     // Aktualisiere den Warenkorb
-    this.cartItemsSubject.next(currentCart);
+    this.cartItemsSubject.next([...currentCart]);
   }
 
   // Methode zum Entfernen eines Produkts aus dem Warenkorb
-  removeFromCart(productId: number) {
-    let currentCart = this.cartItemsSubject.getValue();
-    currentCart = currentCart.filter(item => item.id !== productId);
-    this.cartItemsSubject.next(currentCart);
+  removeOneFromCart(productId: number) {
+    const currentCart = this.cartItemsSubject.getValue();
+    const existingProduct = currentCart.find(item => item.id === productId);
+    if (existingProduct) {
+      existingProduct.quantity -= 1;
+      if (existingProduct.quantity <= 0) {
+        this.removeFromCart(productId);
+      } else {
+        this.cartItemsSubject.next([...currentCart]);
+      }
+    }
   }
 
+  removeFromCart(productId: number) {
+    const currentCart = this.cartItemsSubject.getValue().filter(item => item.id !== productId);
+    this.cartItemsSubject.next([...currentCart]);
+  }
+  
   // Methode zum Aktualisieren der Menge eines Produkts
   updateQuantity(productId: number, quantity: number) {
     const currentCart = this.cartItemsSubject.getValue();
@@ -49,7 +57,7 @@ export class CartService {
       if (product.quantity <= 0) {
         this.removeFromCart(productId);
       } else {
-        this.cartItemsSubject.next(currentCart);
+        this.cartItemsSubject.next([...currentCart]);
       }
     }
   }

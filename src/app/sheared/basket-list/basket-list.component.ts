@@ -1,7 +1,8 @@
-import { Component , Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { PrdctList } from '../../models/prdct-list';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-basket-list',
@@ -10,28 +11,35 @@ import { CommonModule } from '@angular/common';
   templateUrl: './basket-list.component.html',
   styleUrl: './basket-list.component.scss'
 })
-export class BasketListComponent {
+export class BasketListComponent implements OnInit , OnDestroy {
   @Input() isSidebarOpen: boolean = false;
+  @Output() closeSidebarEvent: EventEmitter<void> = new EventEmitter<void>();
 
   cartItems: PrdctList[] = [];
+  private cartSubscription!: Subscription;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartService.cartItems$.subscribe(items => {
+    this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
   }
 
   removeItem(productId: number) {
     this.cartService.removeFromCart(productId);
   }
 
-  updateQuantity(productId: number, quantity: number) {
-    this.cartService.updateQuantity(productId, quantity);
-  }
-
   getTotalPrice(): number {
     return this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
+  closeSidebar() {
+    this.closeSidebarEvent.emit();
   }
 }

@@ -18,8 +18,8 @@
     </div>
 </header>
 <div class="sidebar" [class.open]="isSidebarOpen">
-    <button class="close-button" (click)="closeSidebar()"><img src="./assets/img/header-icon/remove-green.svg" alt=""></button>
-        <app-basket-list></app-basket-list>
+        <app-basket-list   [isSidebarOpen]="isSidebarOpen" 
+        (closeSidebarEvent)="closeSidebar()"></app-basket-list>
   </div>
   
   <!-- Overlay -->
