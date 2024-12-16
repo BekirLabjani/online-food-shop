@@ -39,6 +39,7 @@ export class BasketListComponent implements OnInit , OnDestroy {
   getTotalPrice(): number {
     return this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
+  
   closeSidebar() {
     this.closeSidebarEvent.emit();
   }

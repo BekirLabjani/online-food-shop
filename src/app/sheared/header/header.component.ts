@@ -18,11 +18,18 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent implements OnInit, OnDestroy {
   isSidebarOpen = false;
   cartItemCount$: Observable<number>;
+  cartTotal$: Observable<number>;
   private cartSubscription!: Subscription;
 
   constructor(private cartService: CartService) {
+    // Berechnung der Gesamtanzahl der Artikel im Warenkorb
     this.cartItemCount$ = this.cartService.cartItems$.pipe(
-      map(items => items.reduce((count, item) => count + item.quantity, 0))
+      map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0))
+    );
+
+    // Berechnung der Gesamtsumme der Warenkorbsprodukte
+    this.cartTotal$ = this.cartService.cartItems$.pipe(
+      map(items => items.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 0)), 0))
     );
   }
 

@@ -13,7 +13,16 @@
     <div class="basket">
         <button mat-fab extended (click)="toggleSidebar()">
             <mat-icon>shopping_basket</mat-icon>
-            € 00.00
+            <!-- Dynamische Anzeige der Gesamtsumme -->
+            <ng-container *ngIf="cartTotal$ | async as total">
+              {{ total | currency:'EUR' }}
+            </ng-container>
+            <!-- Optionale Anzeige der Anzahl der Artikel -->
+            <ng-container *ngIf="cartItemCount$ | async as count">
+              <span *ngIf="count > 0" class="cart-count">
+                {{ count }}
+              </span>
+            </ng-container>
         </button>
     </div>
 </header>
