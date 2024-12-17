@@ -8,7 +8,7 @@
     "image": "./assets/products/tomato.png",
     "description": "Saftig und frisch geerntet.",
     "quantity": 0,
-    "stockQuantity": 10
+    "stockQuantity": 0
   },
   {
     "id": 2,
@@ -19,6 +19,6 @@
     "image": "./assets/products/gurke.png",
     "description": "Knackig und grün.",
     "quantity": 0,
-    "stockQuantity": 0
+    "stockQuantity": 30
   }
 ]

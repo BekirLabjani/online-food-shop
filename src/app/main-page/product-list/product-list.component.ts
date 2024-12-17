@@ -30,4 +30,8 @@ export class ProductListComponent {
         this.products = data;
       });
   }
+
+  trackById(index: number, product: PrdctList): number {
+    return product.id;
+  }
 }

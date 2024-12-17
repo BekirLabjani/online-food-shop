@@ -39,19 +39,22 @@ export class ProductCardComponent  {
     }
   }
 
+ 
+  get inStock(): boolean {
+    return this.product.stockQuantity > 0;
+  }
+
   increment() {
-    this.quantity++;
-    this.updateCart();
+    if (this.inStock) {
+      this.quantity++;
+      this.cartService.addOneToCart(this.product);
+    }
   }
 
   decrement() {
-    this.cartService.removeOneFromCart(this.product.id);
+    if (this.inStock && this.quantity > 0) {
+      this.quantity--;
+      this.cartService.removeOneFromCart(this.product.id);
+    }
   }
-
-  updateCart() {
-    const productToAdd: PrdctList = { ...this.product, quantity: this.quantity };
-    this.cartService.addToCart(productToAdd);
-  }
-
-  
 }
