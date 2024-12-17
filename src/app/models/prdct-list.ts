@@ -1,9 +1,11 @@
 export interface PrdctList {
-    id: number;
-    name: string;
-    price: number;
-    pricePerKg: number;
-    image: string;
-    package: string;
-    quantity: number; // Hinzugefügt für die Menge
-  }
+  id: number;
+  name: string;
+  price: number;
+  pricePerKg: number;
+  package: string;
+  image: string;
+  quantity: number;
+  stockQuantity: number; // Korrigierte Eigenschaft
+  inStock: boolean;
+}

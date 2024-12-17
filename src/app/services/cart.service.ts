@@ -62,6 +62,16 @@ export class CartService {
     }
   }
 
+  
+  updateCart(product: PrdctList): void {
+    const currentCart = this.cartItemsSubject.getValue();
+    const index = currentCart.findIndex(item => item.id === product.id);
+    if (index !== -1) {
+      currentCart[index] = { ...product };
+      this.cartItemsSubject.next([...currentCart]);
+    }
+  }
+  
   // Methode zum Abrufen aller Warenkorb-Elemente
   getCartItems(): PrdctList[] {
     return this.cartItemsSubject.getValue();

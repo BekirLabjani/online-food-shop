@@ -52,4 +52,6 @@ export class ProductCardComponent  {
     const productToAdd: PrdctList = { ...this.product, quantity: this.quantity };
     this.cartService.addToCart(productToAdd);
   }
+
+  
 }

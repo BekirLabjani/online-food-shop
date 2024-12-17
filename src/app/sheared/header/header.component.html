@@ -11,12 +11,15 @@
         <button class="search-button">Search</button>
     </div>
     <div class="basket">
-        <button mat-fab extended (click)="toggleSidebar()">
+        <button mat-fab extended (click)="toggleSidebar()" aria-label="Open Cart">
             <mat-icon>shopping_basket</mat-icon>
-            <!-- Dynamische Anzeige der Gesamtsumme -->
-            <ng-container *ngIf="cartTotal$ | async as total">
+            <!-- Dynamische Anzeige der Gesamtsumme mit Fallback -->
+            <ng-container *ngIf="cartTotal$ | async as total; else noTotal">
               {{ total | currency:'EUR' }}
             </ng-container>
+            <ng-template #noTotal>
+              € 00,00
+            </ng-template>
             <!-- Optionale Anzeige der Anzahl der Artikel -->
             <ng-container *ngIf="cartItemCount$ | async as count">
               <span *ngIf="count > 0" class="cart-count">

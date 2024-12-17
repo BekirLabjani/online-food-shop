@@ -3,14 +3,22 @@
     "id": 1,
     "name": "Frische Tomaten",
     "price": 2.99,
-    "image": "./assets/products/tomato.jpg",
-    "description": "Saftig und frisch geerntet."
+    "pricePerKg": 6.98,
+    "package": "500g",
+    "image": "./assets/products/tomato.png",
+    "description": "Saftig und frisch geerntet.",
+    "quantity": 0,
+    "stockQuantity": 10
   },
   {
     "id": 2,
     "name": "Knackige Gurke",
     "price": 1.50,
-    "image": "./assets/products/gg.jpg",
-    "description": "Knackig und grün."
+    "pricePerKg": 4.50,
+    "package": "ca.300g",
+    "image": "./assets/products/gurke.png",
+    "description": "Knackig und grün.",
+    "quantity": 0,
+    "stockQuantity": 0
   }
 ]

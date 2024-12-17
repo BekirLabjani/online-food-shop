@@ -1,16 +1,20 @@
 .product-card {
   position: relative;
-  width: 250px;
-  height: 320px;
-  border: solid 1px black;
-  padding: 10px 7px;
+  width: 200px;
+  height: 300px;
+  padding: 10px 10px;
+  border: solid 1px transparent;
   cursor: pointer;
-  
+  background-color: rgba(219, 218, 218, 0.219);
+  border-radius: 20px;
+  &:hover {
+    border: solid 1px green;
+  }
   > img {
     width: 100%;
     object-fit: cover;
-    max-height: 170px;
-    min-height: 168px;
+    max-height: 140px;
+    min-height: 150px;
   }
 
   .product-inofmation-price {
@@ -40,6 +44,7 @@
   &:hover .add-to-basket {
     opacity: 1;
     pointer-events: auto; /* Jetzt lässt sich der Button klicken */
+   
   }
   .minus-button {
     position: absolute;
@@ -67,3 +72,34 @@
     border: none;
   }
 }
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  >span {
+    font-family: 'Belanosima';
+  }
+}
+
+ /* Ausverkauft Overlay */
+ .stock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  .stock-empty {
+    font-size: 1.8em;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+
+

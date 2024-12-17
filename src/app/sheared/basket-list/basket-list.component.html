@@ -1,11 +1,12 @@
 <!-- src/app/sidebar/sidebar.component.html -->
 <div class="sidebar" [class.open]="isSidebarOpen">
   <!-- Close-Button mit Bild -->
-  <button class="close-button" (click)="closeSidebar()">
-    <img src="./assets/img/header-icon/remove-green.svg" alt="Close" />
-  </button>
-
-  <h2>Warenkorb</h2>
+  <div class="bastek-case-container">
+    <h2>Warenkorb</h2>
+    <button class="close-button" (click)="closeSidebar()">
+      <img src="./assets/img/header-icon/remove-green.svg" alt="Close" />
+    </button>
+  </div>
   
   <ul>
     <li *ngFor="let item of cartItems" class="product-in-basket_v1">

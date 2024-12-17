@@ -6,3 +6,12 @@ margin: 0;
 font-family: Roboto, "Helvetica Neue", sans-serif;
 box-sizing: border-box;
 }
+
+
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Belanosima';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/belanosima-v3-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }

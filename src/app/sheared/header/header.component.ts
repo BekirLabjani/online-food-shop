@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BasketListComponent } from "../basket-list/basket-list.component";
 import { Observable, Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
-import { map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -24,12 +24,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService) {
     // Berechnung der Gesamtanzahl der Artikel im Warenkorb
     this.cartItemCount$ = this.cartService.cartItems$.pipe(
-      map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0))
+      map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0)),
+      startWith(0) // Startet mit 0, falls der Warenkorb leer ist
     );
 
     // Berechnung der Gesamtsumme der Warenkorbsprodukte
     this.cartTotal$ = this.cartService.cartItems$.pipe(
-      map(items => items.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 0)), 0))
+      map(items => items.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 0)), 0)),
+      startWith(0) // Startet mit 0, falls der Warenkorb leer ist
     );
   }
 
