@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
-export class ProductCardComponent  {
+export class ProductCardComponent {
   @Input() product!: PrdctList;
 
   quantity: number = 0;
@@ -39,7 +39,6 @@ export class ProductCardComponent  {
     }
   }
 
- 
   get inStock(): boolean {
     return this.product.stockQuantity > 0;
   }

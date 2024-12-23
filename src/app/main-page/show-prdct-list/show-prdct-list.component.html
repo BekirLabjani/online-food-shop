@@ -1,1 +1,6 @@
-<app-show-prdct-cards></app-show-prdct-cards>
+<app-header></app-header>
+<!-- <app-show-prdct-cards></app-show-prdct-cards> -->
+<app-product-card 
+*ngFor="let product of products" 
+[product]="product">
+</app-product-card>

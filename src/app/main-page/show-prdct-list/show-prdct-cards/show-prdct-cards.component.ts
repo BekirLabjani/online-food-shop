@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HeaderComponent } from "../../../sheared/header/header.component";
 
 @Component({
   selector: 'app-show-prdct-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './show-prdct-cards.component.html',
   styleUrl: './show-prdct-cards.component.scss'
 })
