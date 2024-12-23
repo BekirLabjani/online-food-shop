@@ -77,18 +77,18 @@
           },
           {
             "id": 3002,
-            "name": "Nüsse",
+            "name": "Karotten",
             "price": 2.0,
             "package": "200g Packung",
-            "image": "assets/products/nuts.jpg",
+            "image": "assets/img/gemuese-products/karotten.png",
             "stockQuantity": 80
           },
           {
             "id": 3003,
-            "name": "Schokolade",
+            "name": "Gurken",
             "price": 1.8,
             "package": "100g Tafel",
-            "image": "assets/products/chocolate.jpg",
+            "image": "assets/img/gemuese-products/gurken.webp",
             "stockQuantity": 60
           }
         ]
