@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ProductCardComponent } from '../product-card/product-card.component';
 import { PrdctList } from '../../models/prdct-list';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 
 @Component({
@@ -10,10 +10,9 @@ import { PrdctList } from '../../models/prdct-list';
   standalone: true,
   imports: [    
     CommonModule,
-    ProductCardComponent,
     HttpClientModule,
-
-
+    ProductCardComponent
+    
   ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss'

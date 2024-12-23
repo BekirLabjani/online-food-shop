@@ -5,8 +5,9 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { PrdctList } from '../models/prdct-list';
 import { HeaderComponent } from '../sheared/header/header.component';
 import { FooterComponent } from '../sheared/footer/footer.component';
-import { CategoryCardComponent } from './category-card/category-card.component';
+import { CategoryCardComponent } from './category-page/category-card/category-card.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { StartPageComponent } from "./start-page/start-page.component";
 
 
 @Component({
@@ -14,13 +15,13 @@ import { ProductListComponent } from './product-list/product-list.component';
   standalone: true,
   // Hier unbedingt HttpClientModule importieren!
   imports: [
-    ProductCardComponent,
     CommonModule,
     HttpClientModule,
     HeaderComponent,
     FooterComponent,
     CategoryCardComponent,
-    ProductListComponent
+    ProductListComponent,
+    StartPageComponent
 ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']

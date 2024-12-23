@@ -7,11 +7,13 @@ import { Observable, Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { map, startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatDividerModule, MatIconModule, BasketListComponent,CommonModule],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule, BasketListComponent,CommonModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

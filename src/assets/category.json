@@ -1,0 +1,98 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "categoryName": "Soft Drinks",
+        "image": "assets/img/ctg-prdct/softdrinks.jpg",
+        "products": [
+          {
+            "id": 1001,
+            "name": "Coca-Cola",
+            "price": 1.2,
+            "package": "1 Liter",
+            "image": "assets/products/coca_cola.jpg",
+            "stockQuantity": 50
+          },
+          {
+            "id": 1002,
+            "name": "Pepsi",
+            "price": 1.1,
+            "package": "1 Liter",
+            "image": "assets/products/pepsi.jpg",
+            "stockQuantity": 30
+          },
+          {
+            "id": 2001,
+            "name": "Fanta Orange",
+            "price": 1.2,
+            "package": "1 Liter",
+            "image": "assets/products/fanta_orange.jpg",
+            "stockQuantity": 40
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "categoryName": "Snacks",
+        "image": "assets/img/ctg-prdct/snacks.jpg",
+        "products": [
+          {
+            "id": 3001,
+            "name": "Chips",
+            "price": 1.5,
+            "package": "150g Packung",
+            "image": "assets/products/chips.jpg",
+            "stockQuantity": 100
+          },
+          {
+            "id": 3002,
+            "name": "Nüsse",
+            "price": 2.0,
+            "package": "200g Packung",
+            "image": "assets/products/nuts.jpg",
+            "stockQuantity": 80
+          },
+          {
+            "id": 3003,
+            "name": "Schokolade",
+            "price": 1.8,
+            "package": "100g Tafel",
+            "image": "assets/products/chocolate.jpg",
+            "stockQuantity": 60
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "categoryName": "Gemüse",
+        "image": "assets/img/ctg-prdct/gemuese.jpg",
+        "products": [
+          {
+            "id": 3001,
+            "name": "Eisberg Salat",
+            "price": 1.5,
+            "package": "500g Packung",
+            "image": "assets/img/gemuese-products/Eisbergsalat.jpg",
+            "stockQuantity": 100
+          },
+          {
+            "id": 3002,
+            "name": "Nüsse",
+            "price": 2.0,
+            "package": "200g Packung",
+            "image": "assets/products/nuts.jpg",
+            "stockQuantity": 80
+          },
+          {
+            "id": 3003,
+            "name": "Schokolade",
+            "price": 1.8,
+            "package": "100g Tafel",
+            "image": "assets/products/chocolate.jpg",
+            "stockQuantity": 60
+          }
+        ]
+      }
+    ]
+  }
+  
