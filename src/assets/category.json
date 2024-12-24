@@ -1,6 +1,6 @@
 {
     "categories": [
-      {
+     {
         "id": 1,
         "categoryName": "Soft Drinks",
         "image": "assets/img/ctg-prdct/softdrinks.jpg",
@@ -24,7 +24,7 @@
           {
             "id": 1003,
             "name": "Fanta Orange",
-            "price": 1.2,
+            "pr ice": 1.2,
             "package": "1 Liter",
             "image": "assets/products/fanta_orange.jpg",
             "stockQuantity": 40
