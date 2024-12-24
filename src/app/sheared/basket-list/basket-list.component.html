@@ -8,7 +8,7 @@
     </button>
   </div>
   
-  <ul>
+  <ul  *ngIf="cartItems.length > 0; else emptyBasket" class="basket-items">
     <li *ngFor="let item of cartItems" class="product-in-basket_v1">
       <div class="prudoct-img-basket">
         <img [src]="item.image" alt="{{ item.name }}" />
@@ -37,8 +37,27 @@
     <div class="line" *ngIf="cartItems.length > 0"></div>
   </ul>
 
-  <div class="total-price" *ngIf="cartItems.length > 0">
-    <span>Gesamt:</span>
-    <span>{{ getTotalPrice() | currency:'EUR' }}</span>
+  <ng-template #emptyBasket>
+    <div class="empty-basket-container">
+      <p class="empty-message">Ihr Warenkorb ist leer.</p>
+      <!-- Das Bild mit Animation -->
+      <img src="./assets/img/shopping-bag.png" alt="Leerer Warenkorb">
+    </div>
+  </ng-template>
+  
+    <!-- Gesamtübersicht -->
+    <div class="basket-summary">
+      <div class="summary-row">
+        <span>Warenkorb:</span>
+        <span>{{ getTotalPrice() | currency:'EUR' }}</span>
+      </div>
+      <div class="summary-row borderline">
+        <span>Liefergebühr:</span>
+        <span>{{ deliveryFee | currency:'EUR' }}</span>
+      </div>
+      <div class="summary-row total">
+        <span>Gesamtsumme:</span>
+        <span>{{ getTotalPrice() + deliveryFee | currency:'EUR' }}</span>
+      </div>
+    </div>
   </div>
-</div>

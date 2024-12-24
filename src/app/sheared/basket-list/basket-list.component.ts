@@ -14,6 +14,8 @@ import { Subscription } from 'rxjs';
 export class BasketListComponent implements OnInit , OnDestroy {
   @Input() isSidebarOpen: boolean = false;
   @Output() closeSidebarEvent: EventEmitter<void> = new EventEmitter<void>();
+  deliveryFee: number = 4.99; // Feste Liefergebühr
+
 
   cartItems: PrdctList[] = [];
   private cartSubscription!: Subscription;
