@@ -22,8 +22,16 @@
             "stockQuantity": 30
           },
           {
-            "id": 2001,
+            "id": 1003,
             "name": "Fanta Orange",
+            "price": 1.2,
+            "package": "1 Liter",
+            "image": "assets/products/fanta_orange.jpg",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1004,
+            "name": "Sprite",
             "price": 1.2,
             "package": "1 Liter",
             "image": "assets/products/fanta_orange.jpg",
