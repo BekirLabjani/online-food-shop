@@ -7,8 +7,8 @@
       <img src="./assets/img/header-icon/remove-green.svg" alt="Close" />
     </button>
   </div>
-  
-  <ul  *ngIf="cartItems.length > 0; else emptyBasket" class="basket-items">
+
+  <ul *ngIf="cartItems.length > 0; else emptyBasket" class="basket-items">
     <li *ngFor="let item of cartItems" class="product-in-basket_v1">
       <div class="prudoct-img-basket">
         <img [src]="item.image" alt="{{ item.name }}" />
@@ -44,20 +44,20 @@
       <img src="./assets/img/shopping-bag.png" alt="Leerer Warenkorb">
     </div>
   </ng-template>
-  
-    <!-- Gesamtübersicht -->
-    <div class="basket-summary">
-      <div class="summary-row">
-        <span>Warenkorb:</span>
-        <span>{{ getTotalPrice() | currency:'EUR' }}</span>
-      </div>
-      <div class="summary-row borderline">
-        <span>Liefergebühr:</span>
-        <span>{{ deliveryFee | currency:'EUR' }}</span>
-      </div>
-      <div class="summary-row total">
-        <span>Gesamtsumme:</span>
-        <span>{{ getTotalPrice() + deliveryFee | currency:'EUR' }}</span>
-      </div>
+
+  <!-- Gesamtübersicht -->
+  <div class="basket-summary">
+    <div class="summary-row basket-text">
+      <span>Warenkorb:</span>
+      <span>{{ getTotalPrice() | currency:'EUR' }}</span>
     </div>
+    <div class="summary-row borderline basket-text">
+      <span>Liefergebühr:</span>
+      <span>{{ deliveryFee | currency:'EUR' }}</span>
+    </div>
+    <button [disabled]="getTotalPrice() + deliveryFee < 20" class="summary-row total">
+      <span>Gesamtsumme:</span>
+      <span>{{ (getTotalPrice() + deliveryFee) | currency:'EUR' }}</span>
+    </button>
   </div>
+</div>
