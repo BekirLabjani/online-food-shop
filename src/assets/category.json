@@ -9,32 +9,88 @@
             "id": 1001,
             "name": "Coca-Cola",
             "price": 1.2,
-            "package": "1 Liter",
-            "image": "assets/products/coca_cola.jpg",
+            "package": "2 Liter",
+            "image": "assets/img/drinks/cocacola-original-2l.webp",
             "stockQuantity": 50
           },
           {
             "id": 1002,
-            "name": "Pepsi",
+            "name": "Coca-Cola Zero",
             "price": 1.1,
-            "package": "1 Liter",
-            "image": "assets/products/pepsi.jpg",
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/cocacola-zero-1_5l.webp",
             "stockQuantity": 30
           },
           {
             "id": 1003,
             "name": "Fanta Orange",
-            "pr ice": 1.2,
-            "package": "1 Liter",
-            "image": "assets/products/fanta_orange.jpg",
+            "price": 1.2,
+            "package": "2 Liter",
+            "image": "assets/img/drinks/fanta-orange-2l.webp",
             "stockQuantity": 40
           },
           {
             "id": 1004,
-            "name": "Sprite",
+            "name": "Fanta Zero",
             "price": 1.2,
-            "package": "1 Liter",
-            "image": "assets/products/fanta_orange.jpg",
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/fanta-zerosugar-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1005,
+            "name": "Sprite Lemon",
+            "price": 1.2,
+            "package": "2 Liter",
+            "image": "assets/img/drinks/sprite-lemonlime-2l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1006,
+            "name": "Almdudler Zuckerfrei",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/almdudler-zuckerfrei-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1007,
+            "name": "Gröbi Grapefruit Zuckerfrei",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/groebi-grapefruit-zuckerfrei-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1008,
+            "name": "Gröbi Orange Zuckerfrei",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/groebi-orange-zuckerfrei-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1009,
+            "name": "Gröbi Waldbeere Zuckerfrei",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/groebi-waldbeere-zuckerfrei-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1010,
+            "name": "Gröbi Zitrone Zuckerfrei",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/groebi-zitrone-zuckerfrei-1_5l.webp",
+            "stockQuantity": 40
+          },
+          {
+            "id": 1011,
+            "name": "Rauch Eistee Zitrone Zero",
+            "price": 1.2,
+            "package": "1,5 Liter",
+            "image": "assets/img/drinks/rauch-eistee-zitrone-zero-1_5l.webp",
             "stockQuantity": 40
           }
         ]
