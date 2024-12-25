@@ -1,162 +1,136 @@
 {
-    "categories": [
-     {
-        "id": 1,
-        "categoryName": "Soft Drinks",
-        "image": "assets/img/ctg-prdct/softdrinks.jpg",
-        "products": [
-          {
-            "id": 1001,
-            "name": "Coca-Cola",
-            "price": 1.2,
-            "package": "2 Liter",
-            "image": "assets/img/drinks/cocacola-original-2l.webp",
-            "stockQuantity": 50
-          },
-          {
-            "id": 1002,
-            "name": "Coca-Cola Zero",
-            "price": 1.1,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/cocacola-zero-1_5l.webp",
-            "stockQuantity": 30
-          },
-          {
-            "id": 1003,
-            "name": "Fanta Orange",
-            "price": 1.2,
-            "package": "2 Liter",
-            "image": "assets/img/drinks/fanta-orange-2l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1004,
-            "name": "Fanta Zero",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/fanta-zerosugar-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1005,
-            "name": "Sprite Lemon",
-            "price": 1.2,
-            "package": "2 Liter",
-            "image": "assets/img/drinks/sprite-lemonlime-2l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1006,
-            "name": "Almdudler Zuckerfrei",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/almdudler-zuckerfrei-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1007,
-            "name": "Gröbi Grapefruit Zuckerfrei",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/groebi-grapefruit-zuckerfrei-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1008,
-            "name": "Gröbi Orange Zuckerfrei",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/groebi-orange-zuckerfrei-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1009,
-            "name": "Gröbi Waldbeere Zuckerfrei",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/groebi-waldbeere-zuckerfrei-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1010,
-            "name": "Gröbi Zitrone Zuckerfrei",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/groebi-zitrone-zuckerfrei-1_5l.webp",
-            "stockQuantity": 40
-          },
-          {
-            "id": 1011,
-            "name": "Rauch Eistee Zitrone Zero",
-            "price": 1.2,
-            "package": "1,5 Liter",
-            "image": "assets/img/drinks/rauch-eistee-zitrone-zero-1_5l.webp",
-            "stockQuantity": 40
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "categoryName": "Snacks",
-        "image": "assets/img/ctg-prdct/snacks.jpg",
-        "products": [
-          {
-            "id": 3001,
-            "name": "Chips",
-            "price": 1.5,
-            "package": "150g Packung",
-            "image": "assets/products/chips.jpg",
-            "stockQuantity": 100
-          },
-          {
-            "id": 3002,
-            "name": "Nüsse",
-            "price": 2.0,
-            "package": "200g Packung",
-            "image": "assets/products/nuts.jpg",
-            "stockQuantity": 80
-          },
-          {
-            "id": 3003,
-            "name": "Schokolade",
-            "price": 1.8,
-            "package": "100g Tafel",
-            "image": "assets/products/chocolate.jpg",
-            "stockQuantity": 60
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "categoryName": "Gemüse",
-        "image": "assets/img/ctg-prdct/gemuese.jpg",
-        "products": [
-          {
-            "id": 3001,
-            "name": "Eisberg Salat",
-            "price": 1.5,
-            "package": "500g Packung",
-            "image": "assets/img/gemuese-products/Eisbergsalat.jpg",
-            "stockQuantity": 100
-          },
-          {
-            "id": 3002,
-            "name": "Karotten",
-            "price": 2.0,
-            "package": "200g Packung",
-            "image": "assets/img/gemuese-products/karotten.png",
-            "stockQuantity": 80
-          },
-          {
-            "id": 3003,
-            "name": "Gurken",
-            "price": 1.8,
-            "package": "100g Tafel",
-            "image": "assets/img/gemuese-products/gurken.webp",
-            "stockQuantity": 60
-          }
-        ]
-      }
-    ]
-  }
-  
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Getränke",
+      "image": "assets/img/ctg-prdct/getraenke.jpg",
+      "subcategories": [
+        {
+          "id": 101,
+          "subcategoryName": "Soft Drinks",
+          "image": "assets/img/subctg-prdct/softdrinks.jpg",
+          "products": [
+            {
+              "id": 1001,
+              "name": "Coca-Cola",
+              "description": "Erfrischender Geschmack mit Kohlensäure",
+              "brand": "Coca-Cola",
+              "price": 1.2,
+              "discountPrice": 1.0,
+              "priceToTray": 7,
+              "tax": 0.07,
+              "package": "2 Liter",
+              "volume": "2000ml",
+              "image": "assets/img/drinks/cocacola-original-2l.webp",
+              "stockQuantity": 50,
+              "minimumStockLevel": 10,
+              "reorderQuantity": 50,
+              "expirationDate": "2024-12-31",
+              "isAvailable": true,
+              "sizes": ["1 Liter", "2 Liter"],
+              "flavors": ["Cola"],
+              "allergens": ["Keine"],
+              "promotions": "Kaufe 2, erhalte 1 gratis",
+              "newArrival": false,
+              "bestseller": true,
+              "ecoFriendly": true,
+              "recyclingInfo": "Flasche im Pfandautomaten recyceln"
+            },
+            {
+              "id": 1002,
+              "name": "Coca-Cola Zero",
+              "description": "Der gleiche Geschmack ohne Zucker",
+              "brand": "Coca-Cola",
+              "price": 1.1,
+              "discountPrice": null,
+              "priceToTray": 6.5,
+              "tax": 0.07,
+              "package": "1,5 Liter",
+              "volume": "1500ml",
+              "image": "assets/img/drinks/cocacola-zero-1_5l.webp",
+              "stockQuantity": 30,
+              "minimumStockLevel": 10,
+              "reorderQuantity": 30,
+              "expirationDate": "2024-11-30",
+              "isAvailable": true,
+              "sizes": ["1 Liter", "1,5 Liter"],
+              "flavors": ["Cola"],
+              "allergens": ["Keine"],
+              "promotions": null,
+              "newArrival": true,
+              "bestseller": false,
+              "ecoFriendly": true,
+              "recyclingInfo": "Flasche im Pfandautomaten recyceln"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "subcategoryName": "Wasser",
+          "image": "assets/img/subctg-prdct/wasser.jpg",
+          "products": [
+            {
+              "id": 2001,
+              "name": "Stillwasser",
+              "description": "Reines, klares Wasser ohne Kohlensäure",
+              "brand": "Nature",
+              "price": 0.8,
+              "discountPrice": null,
+              "priceToTray": 4.5,
+              "tax": 0.07,
+              "package": "1,5 Liter",
+              "volume": "1500ml",
+              "image": "assets/img/drinks/stillwasser-1_5l.webp",
+              "stockQuantity": 100,
+              "minimumStockLevel": 20,
+              "reorderQuantity": 40,
+              "expirationDate": "2025-01-01",
+              "isAvailable": true,
+              "sizes": ["1 Liter", "1,5 Liter"],
+              "flavors": ["Neutral"],
+              "allergens": ["Keine"],
+              "promotions": null,
+              "newArrival": false,
+              "bestseller": false,
+              "ecoFriendly": true,
+              "recyclingInfo": "Flasche im Pfandautomaten recyceln"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "categoryName": "Snacks",
+      "image": "assets/img/ctg-prdct/snacks.jpg",
+      "products": [
+        {
+          "id": 6001,
+          "name": "Chips",
+          "description": "Knusprige Kartoffelchips mit Paprikageschmack",
+          "brand": "Chippy",
+          "price": 1.5,
+          "discountPrice": 1.2,
+          "priceToTray": null,
+          "tax": 0.07,
+          "package": "150g Packung",
+          "volume": "150g",
+          "image": "assets/products/chips.jpg",
+          "stockQuantity": 100,
+          "minimumStockLevel": 15,
+          "reorderQuantity": 50,
+          "expirationDate": "2024-10-15",
+          "isAvailable": true,
+          "sizes": ["150g"],
+          "flavors": ["Paprika"],
+          "allergens": ["Gluten"],
+          "promotions": "2 für 2,50€",
+          "newArrival": false,
+          "bestseller": true,
+          "ecoFriendly": false,
+          "recyclingInfo": "Verpackung im Restmüll entsorgen"
+        }
+      ]
+    }
+  ]
+}

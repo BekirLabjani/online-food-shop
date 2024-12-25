@@ -55,9 +55,15 @@
       <span>Liefergebühr:</span>
       <span>{{ deliveryFee | currency:'EUR' }}</span>
     </div>
-    <button [disabled]="getTotalPrice() + deliveryFee < 20" class="summary-row total">
+    <div class="summary-row total">
       <span>Gesamtsumme:</span>
-      <span>{{ (getTotalPrice() + deliveryFee) | currency:'EUR' }}</span>
+      <span>{{ getTotalPrice() + deliveryFee | currency:'EUR' }}</span>
+    </div>
+    
+    <button 
+      [disabled]="getTotalPrice() < 20"
+      class="checkout-button">
+      Weiter zur Kasse
     </button>
   </div>
 </div>

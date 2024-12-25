@@ -1,143 +1,190 @@
-ul {
-    padding: 0;
-}
-
-.product-in-basket_v1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    img {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-.line {
+.sidebar {
     width: 100%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.39);
-}
-
-.total-price {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    background: gray;
-    position: absolute;
-    bottom: 0;
-    justify-content: space-between;
-}
-
-.bastek-case-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    justify-content: space-between;
-
-    >h2 {
-        margin: 0;
-        margin-left: 20px;
-    }
-
-    >button {
-        margin-right: 50px;
-        cursor: pointer;
-    }
-}
-
-
-.empty-basket-container {
-    height: 100vh;
-    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: fixed;
     top: 0;
-    bottom: 0;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    font-family: "Belanosima";
-    flex-direction: column;
-    gap: 50px;
-
-    img {
-        width: 120px;
-        animation: swingImage 2s ease-in-out infinite;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  
+    &.open {
+      transform: translateX(0);
     }
-}
-
-/* Animation definieren */
-@keyframes swingImage {
-    0% {
-        transform: rotate(-40deg);
+  
+    .bastek-case-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eaeaea;
+  
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      .close-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+  
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
-
-    50% {
-        transform: rotate(40deg);
+  
+    .basket-items {
+        padding: 20px;
+        /* overflow-y: scroll; */
+        max-height: 59vh;
+        overflow: hidden;
+        overflow-y: scroll;
+  
+      .product-in-basket_v1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eaeaea;
+  
+        .prudoct-img-basket {
+          img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+  
+        .product-information-amounts {
+          flex: 1;
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+  
+          .product-information {
+            display: flex;
+            justify-content: space-between;
+  
+            .prodct-name-basket {
+              span:first-child {
+                font-weight: bold;
+                color: #333;
+              }
+  
+              span:last-child {
+                font-size: 0.85rem;
+                color: #777;
+              }
+            }
+  
+            .prodct-price-basket {
+              font-weight: bold;
+              color: #28a745;
+            }
+          }
+  
+          .amount-product-basket {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+  
+            .price-prodct {
+              font-size: 1rem;
+              color: #333;
+            }
+  
+            .price-to-Kg {
+              font-size: 0.8rem;
+              color: #999;
+            }
+          }
+        }
+  
+        .remove-button {
+          background: none;
+          border: none;
+          cursor: pointer;
+  
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
-
-    100% {
-        transform: rotate(-40deg);
+  
+    .empty-basket-container {
+      text-align: center;
+      padding: 40px;
+  
+      .empty-message {
+        font-size: 1.2rem;
+        color: #999;
+        margin-bottom: 20px;
+      }
+  
+      img {
+        width: 100px;
+        height: 100px;
+        opacity: 0.8;
+      }
     }
-}
-
-.borderline {
-    border-bottom: solid 1px black;
-}
-
-.basket-summary {
-    position: absolute;
-    bottom: 20px;
-    /* padding: 20px; */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Francois One';
-    gap: 10px;
-}
-
-.summary-row {
-    transition: 500ms ease-in-out;
-
-    &:hover {
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 0;
-        transition: 500ms ease-in-out;
+  
+    .basket-summary {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-top: 1px solid #eaeaea;
+  
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+  
+        &.total {
+          font-weight: bold;
+          font-size: 1.2rem;
+          border-top: 1px solid #ddd;
+          margin-top: 10px;
+          padding-top: 10px;
+        }
+  
+        .basket-text {
+          font-size: 1rem;
+          color: #333;
+        }
+      }
+  
+      .checkout-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        &:disabled {
+          background-color: #d3d3d3;
+          cursor: not-allowed;
+        }
+      }
     }
-}
-.total {
-    height: 40px;
-    width: 90%;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    background: #40b658;
-    padding-inline: 20px;
-    color: white;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 30px;
-    border: none;
-    font-size: 20px;
- 
-}
-
-button:disabled {
-    background-color: #40b65844;
-    cursor: pointer;
-    border: none;
-}
-
-.basket-text {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    justify-content: space-between;
-    padding-inline: 30px;
-    font-size: 20px;
-}
+  }
+  
