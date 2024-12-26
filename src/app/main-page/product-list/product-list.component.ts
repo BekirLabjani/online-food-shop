@@ -18,19 +18,23 @@ import { ProductCardComponent } from '../product-card/product-card.component';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  products: PrdctList[] = [];
+  products: any[] = []; // Alle Produkte
+  newProducts: any[] = []; // Gefilterte neue Produkte
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<PrdctList[]>('assets/products.json')
-      .subscribe(data => {
-        // 'data' ist ein Array aller Produkte; wir speichern sie direkt in 'this.products'
-        this.products = data;
-      });
-  }
+    // Daten aus der JSON-Datei laden
+    this.http.get<any>('assets/category.json').subscribe(data => {
+      // Extrahiere alle Produkte aus allen Kategorien
+      const allProducts = data.categories.flatMap((category: any) =>
+        category.subcategories
+          ? category.subcategories.flatMap((subcategory: any) => subcategory.products)
+          : category.products
+      );
 
-  trackById(index: number, product: PrdctList): number {
-    return product.id;
+      // Filtere die neuen Produkte
+      this.newProducts = allProducts.filter((product: any) => product.newArrival === true);
+    });
   }
 }

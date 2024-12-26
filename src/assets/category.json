@@ -31,7 +31,7 @@
               "flavors": ["Cola"],
               "allergens": ["Keine"],
               "promotions": "Kaufe 2, erhalte 1 gratis",
-              "newArrival": false,
+              "newArrival": true,
               "bestseller": true,
               "ecoFriendly": true,
               "recyclingInfo": "Flasche im Pfandautomaten recyceln"

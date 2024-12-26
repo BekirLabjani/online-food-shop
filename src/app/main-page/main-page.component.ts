@@ -8,6 +8,7 @@ import { FooterComponent } from '../sheared/footer/footer.component';
 import { CategoryCardComponent } from './category-page/category-card/category-card.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { StartPageComponent } from "./start-page/start-page.component";
+import { DynamicProductListComponent } from "./show-prdct-list/dynamic-product-list/dynamic-product-list.component";
 
 
 @Component({
@@ -21,7 +22,8 @@ import { StartPageComponent } from "./start-page/start-page.component";
     FooterComponent,
     CategoryCardComponent,
     ProductListComponent,
-    StartPageComponent
+    StartPageComponent,
+    DynamicProductListComponent
 ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']

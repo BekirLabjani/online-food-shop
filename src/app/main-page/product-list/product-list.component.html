@@ -1,9 +1,9 @@
 <section class="product-list-cnt-v1">
     <h1>Neue Produkte </h1>
     <div class="product-list">
-      <div class="product-list-item" *ngFor="let item of products">
+      <div class="product-list-item" *ngFor="let item of newProducts">
         <!-- Jedes Produkt in der eigenen Card darstellen -->
-        <app-product-card [product]="item" ></app-product-card>
+        <app-product-card [product]="item"></app-product-card>
       </div>
     </div>
   </section>
