@@ -20,6 +20,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProductCardComponent {
   @Input() product!: PrdctList;
+  drink = false;
 
   quantity: number = 0;
   private cartSubscription!: Subscription;
@@ -30,7 +31,27 @@ export class ProductCardComponent {
     this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
       const cartProduct = items.find(item => item.id === this.product.id);
       this.quantity = cartProduct ? cartProduct.quantity : 0;
+      this.getFirstNumberOfId();
     });
+  }
+
+  getFirstNumberOfId(){
+    let firstElement = this.product.id.toString().charAt(0);
+    if(firstElement == '1'){
+      this.drink = true;
+    } else {
+      this.drink = false;
+    }
+  }
+
+  iconBlurZero(id: number){
+    let product = document.getElementById(`${id}`);
+    product?.classList.remove('blur');
+  }
+
+  iconBlur(id: number){
+    let product = document.getElementById(`${id}`);
+    product?.classList.add('blur');
   }
 
   ngOnDestroy(): void {

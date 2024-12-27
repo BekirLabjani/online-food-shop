@@ -3,7 +3,7 @@
     {
       "id": 1,
       "categoryName": "Getränke",
-      "image": "assets/img/ctg-prdct/getraenke.jpg",
+      "image": "assets/img/ctg-prdct/softdrinks.jpg",
       "subcategories": [
         {
           "id": 101,
@@ -67,10 +67,10 @@
         {
           "id": 102,
           "subcategoryName": "Wasser",
-          "image": "assets/img/subctg-prdct/wasser.jpg",
+          "image": "assets/img/drinks/mehrner-heilwasser_1l.webp",
           "products": [
             {
-              "id": 2001,
+              "id": 10001,
               "name": "Stillwasser",
               "description": "Reines, klares Wasser ohne Kohlensäure",
               "brand": "Nature",
@@ -80,7 +80,7 @@
               "tax": 0.07,
               "package": "1,5 Liter",
               "volume": "1500ml",
-              "image": "assets/img/drinks/stillwasser-1_5l.webp",
+              "image": "assets/img/drinks/mehrner-heilwasser_1l.webp",
               "stockQuantity": 100,
               "minimumStockLevel": 20,
               "reorderQuantity": 40,
@@ -103,34 +103,42 @@
       "id": 2,
       "categoryName": "Snacks",
       "image": "assets/img/ctg-prdct/snacks.jpg",
-      "products": [
+      "subcategories": [
         {
-          "id": 6001,
-          "name": "Chips",
-          "description": "Knusprige Kartoffelchips mit Paprikageschmack",
-          "brand": "Chippy",
-          "price": 1.5,
-          "discountPrice": 1.2,
-          "priceToTray": null,
-          "tax": 0.07,
-          "package": "150g Packung",
-          "volume": "150g",
-          "image": "assets/products/chips.jpg",
-          "stockQuantity": 100,
-          "minimumStockLevel": 15,
-          "reorderQuantity": 50,
-          "expirationDate": "2024-10-15",
-          "isAvailable": true,
-          "sizes": ["150g"],
-          "flavors": ["Paprika"],
-          "allergens": ["Gluten"],
-          "promotions": "2 für 2,50€",
-          "newArrival": false,
-          "bestseller": true,
-          "ecoFriendly": false,
-          "recyclingInfo": "Verpackung im Restmüll entsorgen"
+          "id": 201,
+          "subcategoryName": "Chips",
+          "image": "assets/img/subctg-prdct/chips.jpg",
+          "products": [
+            {
+              "id": 6001,
+              "name": "Chips",
+              "description": "Knusprige Kartoffelchips mit Paprikageschmack",
+              "brand": "Chippy",
+              "price": 1.5,
+              "discountPrice": 1.2,
+              "priceToTray": null,
+              "tax": 0.07,
+              "package": "150g Packung",
+              "volume": "150g",
+              "image": "assets/products/chips.jpg",
+              "stockQuantity": 100,
+              "minimumStockLevel": 15,
+              "reorderQuantity": 50,
+              "expirationDate": "2024-10-15",
+              "isAvailable": true,
+              "sizes": ["150g"],
+              "flavors": ["Paprika"],
+              "allergens": ["Gluten"],
+              "promotions": "2 für 2,50€",
+              "newArrival": false,
+              "bestseller": true,
+              "ecoFriendly": false,
+              "recyclingInfo": "Verpackung im Restmüll entsorgen"
+            }
+          ]
         }
       ]
     }
+    
   ]
 }

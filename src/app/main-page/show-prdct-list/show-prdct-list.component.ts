@@ -25,9 +25,17 @@ export class ShowPrdctListComponent implements OnInit {
     if (categoryId) {
       this.http.get<any>('assets/category.json').subscribe((data) => {
         const category = data.categories.find((cat: any) => cat.id === +categoryId);
+        console.log(category);
         if (category) {
           this.categoryName = category.categoryName;
-          this.products = category.products; // Speichere die Produkte
+          for (let i = 0; i < category.subcategories.length; i++) {
+            const subcategory = category.subcategories[i];
+            for (let j = 0; j < subcategory.products.length; j++) {
+              const singleProduct = subcategory.products[j];
+              console.log(singleProduct); 
+              this.products.push(singleProduct);
+            }
+          }
         }
       });
     }
