@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartTotal$: Observable<number>;
   private cartSubscription!: Subscription;
 
-  isUserLoggedIn = false; // Zustand, ob der Benutzer eingeloggt ist
+  isUserLoggedIn = true; // Zustand, ob der Benutzer eingeloggt ist
   isDropdownOpen = false; // Zustand des Dropdown-Menüs
 
   user = {
