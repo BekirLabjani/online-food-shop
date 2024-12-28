@@ -22,9 +22,9 @@ export class DynamicProductListComponent implements OnInit {
     this.http.get<any>('assets/category.json').subscribe(data => {
       // Extrahiere alle Produkte aus den Kategorien
       const allProducts: PrdctList[] = data.categories.flatMap((category: any) =>
-        category.subcategories
-          ? category.subcategories.flatMap((subcategory: any) => subcategory.products)
-          : category.products
+        category.subcategories? 
+            category.subcategories.flatMap((subcategory: any) => subcategory.products): 
+            category.products
       );
 
       // Filtere basierend auf dem Produkt-Typ

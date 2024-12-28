@@ -20,6 +20,11 @@ export class CartService {
   private saveCart() {
     localStorage.setItem('cart', JSON.stringify(this.cartItemsSubject.getValue()));
   }
+  private updateCart(updatedCart: PrdctList[]): void {
+    this.cartItemsSubject.next(updatedCart);
+    this.saveCart();
+  }
+  
 
   addOneToCart(product: PrdctList) {
     const currentCart = this.cartItemsSubject.getValue();
@@ -55,5 +60,16 @@ export class CartService {
 
   getCartItems(): PrdctList[] {
     return this.cartItemsSubject.getValue();
+  }
+
+  addMultipleToCart(product: PrdctList, quantity: number) {
+    const currentCart = this.cartItemsSubject.getValue();
+    const existingProduct = currentCart.find(item => item.id === product.id);
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      currentCart.push({ ...product, quantity });
+    }
+    this.updateCart([...currentCart]);
   }
 }

@@ -1,5 +1,13 @@
 <div class="product-card" *ngIf="product">
-  <img [id]="product.id" *ngIf="drink" ngClass="plus-6-icon blur" (mouseover)="iconBlurZero(product.id)" (mouseleave)="iconBlur(product.id)" src="./assets/img/drinks/icons/six.png">
+  <img 
+  [id]="product.id" 
+  *ngIf="drink" 
+  class="plus-6-icon blur" 
+  (mouseover)="iconBlurZero(product.id)" 
+  (mouseleave)="iconBlur(product.id)" 
+  (click)="addSixToCart()" 
+  src="./assets/img/drinks/icons/six.png" 
+  alt="6 Plus Icon">
   <img [src]="product.image" alt="Produktbild" class="product-image" />
   <div class="product-inofmation-price">
     <div class="title-container">

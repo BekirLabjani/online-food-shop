@@ -23,6 +23,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartTotal$: Observable<number>;
   private cartSubscription!: Subscription;
 
+  isUserLoggedIn = false; // Zustand, ob der Benutzer eingeloggt ist
+  isDropdownOpen = false; // Zustand des Dropdown-Menüs
+
+  user = {
+    name: 'Max Mustermann',
+    avatar: 'assets/img/user-avatar.png'
+  };
+
   constructor(private cartService: CartService) {
     // Berechnung der Gesamtanzahl der Artikel im Warenkorb
     this.cartItemCount$ = this.cartService.cartItems$.pipe(
@@ -51,5 +59,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   closeSidebar() {
     this.isSidebarOpen = false;
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  goToProfile() {
+    // Navigation zur Profilseite
+    console.log('Navigiere zur Profilseite');
+  }
+
+  logout() {
+    // Logout-Logik implementieren
+    console.log('Benutzer wurde ausgeloggt');
+    this.isUserLoggedIn = false;
   }
 }

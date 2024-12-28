@@ -1,38 +1,53 @@
 <header class="header-container">
-    <div class="logo">
-        <img src="assets/logo.png" routerLink="/main-page" alt="Shop Logo" />
-    </div>
-    <div class="header-buttons">
-        <button class="header-button">Favoriten</button>
-        <button class="header-button" routerLink="/category" routerLinkActive="active-link">Kategorie</button>
-    </div>
-    <div class="search-container">
-        <input type="text" placeholder="Search for products..." />
-        <button class="search-button">Search</button>
-    </div>
-    <div class="basket">
-        <button mat-fab extended (click)="toggleSidebar()" aria-label="Open Cart">
-            <mat-icon>shopping_basket</mat-icon>
-            <!-- Dynamische Anzeige der Gesamtsumme mit Fallback -->
-            <ng-container *ngIf="cartTotal$ | async as total; else noTotal">
-              {{ total | currency:'EUR' }}
-            </ng-container>
-            <ng-template #noTotal>
-              € 00,00
-            </ng-template>
-            <!-- Optionale Anzeige der Anzahl der Artikel -->
-            <ng-container *ngIf="cartItemCount$ | async as count">
-              <span *ngIf="count > 0" class="cart-count">
-                {{ count }}
-              </span>
-            </ng-container>
-        </button>
-    </div>
+  <div class="logo">
+      <img src="assets/logo.png" routerLink="/main-page" alt="Shop Logo" />
+  </div>
+  <div class="header-buttons">
+      <button class="header-button">Favoriten</button>
+      <button class="header-button" routerLink="/category" routerLinkActive="active-link">Kategorie</button>
+  </div>
+  <div class="search-container">
+      <input type="text" placeholder="Search for products..." />
+      <button class="search-button">Search</button>
+  </div>
+  <div class="user-section">
+      <div class="user-info" *ngIf="isUserLoggedIn">
+          <img [src]="user.avatar || 'assets/default-avatar.png'" alt="Avatar" class="user-avatar" />
+          <span class="user-name">{{ user.name }}</span>
+          <div class="dropdown">
+              <button class="dropdown-toggle" (click)="toggleDropdown()">▼</button>
+              <div class="dropdown-menu" *ngIf="isDropdownOpen">
+                  <button (click)="goToProfile()">Profil</button>
+                  <button (click)="logout()">Logout</button>
+              </div>
+          </div>
+      </div>
+      <div *ngIf="!isUserLoggedIn">
+          <button routerLink="/login" class="login-button">Login</button>
+      </div>
+  </div>
+  <div class="basket">
+      <button mat-fab extended (click)="toggleSidebar()" aria-label="Open Cart">
+          <mat-icon>shopping_basket</mat-icon>
+          <!-- Dynamische Anzeige der Gesamtsumme mit Fallback -->
+          <ng-container *ngIf="cartTotal$ | async as total; else noTotal">
+            {{ total | currency:'EUR' }}
+          </ng-container>
+          <ng-template #noTotal>
+            € 00,00
+          </ng-template>
+          <!-- Optionale Anzeige der Anzahl der Artikel -->
+          <ng-container *ngIf="cartItemCount$ | async as count">
+            <span *ngIf="count > 0" class="cart-count">
+              {{ count }}
+            </span>
+          </ng-container>
+      </button>
+  </div>
 </header>
 <div class="sidebar" [class.open]="isSidebarOpen">
-        <app-basket-list   [isSidebarOpen]="isSidebarOpen" 
-        (closeSidebarEvent)="closeSidebar()"></app-basket-list>
-  </div>
-  
-  <!-- Overlay -->
-  <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+  <app-basket-list [isSidebarOpen]="isSidebarOpen" (closeSidebarEvent)="closeSidebar()"></app-basket-list>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>

@@ -77,4 +77,16 @@ export class ProductCardComponent {
       this.cartService.removeOneFromCart(this.product.id);
     }
   }
+
+
+
+  addSixToCart() {
+    if (this.inStock && this.product.stockQuantity >= 6) {
+      this.quantity += 6; // Aktualisiere die lokale Menge
+      this.cartService.addMultipleToCart(this.product, 6); // Füge 6 Einheiten zum Warenkorb hinzu
+    } else {
+      alert('Nicht genügend Lagerbestand für 6 Flaschen!');
+    }
+  }
+
 }
