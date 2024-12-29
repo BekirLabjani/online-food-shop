@@ -1,0 +1,17 @@
+<div class="content">
+  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+    <input type="email" placeholder="E-mail Adresse eingeben"/>
+    <input type="password" placeholder="Passwort eingeben"/>
+    <a href="#">Passwort vergessen</a>
+    <button type="submit">Login</button>
+    <button>Registrieren</button>
+  </form>
+  <div class="flex">
+    <div class="vertical-line"></div>
+    <span>oder weiter mit</span>
+    <div class="vertical-line"></div>
+  </div>
+  <div class="google-div">
+    <img class="google-icon" src="assets\img\icons\google-icon.png" alt="Google">
+  </div>
+</div>

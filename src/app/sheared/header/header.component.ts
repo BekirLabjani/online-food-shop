@@ -8,6 +8,8 @@ import { CartService } from '../../services/cart.service';
 import { map, startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { DialogForUserComponent } from '../../dialog-for-user/dialog-for-user.component';
+import { MatDialog } from '@angular/material/dialog'; // Importiere MatDialog
 
 
 @Component({
@@ -31,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     avatar: 'assets/img/user-avatar.png'
   };
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private dialog: MatDialog) {
     // Berechnung der Gesamtanzahl der Artikel im Warenkorb
     this.cartItemCount$ = this.cartService.cartItems$.pipe(
       map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0)),
@@ -74,5 +76,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // Logout-Logik implementieren
     console.log('Benutzer wurde ausgeloggt');
     this.isUserLoggedIn = false;
+  }
+
+  openAddUserDialog(){
+    this.dialog.open(DialogForUserComponent)
   }
 }
