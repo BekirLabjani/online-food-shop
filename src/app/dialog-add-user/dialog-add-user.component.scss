@@ -25,11 +25,6 @@ input{
     border-radius: 10px;
 }
 
-a{
-    text-decoration: none;
-    color: green;
-}
-
 button{
     padding: 8px;
     display: flex;
@@ -38,40 +33,4 @@ button{
     border-radius: 10px;
     background-color: darkorange;
     cursor: pointer;
-}
-
-.flex{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-span{
-    text-align: center;
-}
-
-.vertical-line{
-    width: 200px;
-    height: 1px;
-    background-color: black;
-}
-
-.google-div{
-    height: 80px;
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-
-.google-icon{
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    cursor: pointer;
-    &:hover{
-        scale: (1.2);
-    }
 }

@@ -1,0 +1,10 @@
+<div class="content">
+    <h2>Erstelle ein neues Konto</h2>
+  <form (ngSubmit)="signUp(registForm)" #registForm="ngForm">
+    <input type="email" placeholder="E-mail Adresse eingeben" />
+    <input type="password" placeholder="Passwort eingeben" />
+    <input type="password" placeholder="Passwort wiederholen" />
+    <button type="submit">Registrieren</button>
+    <button (click)="closeDialog()">Zurück zum Login</button>
+  </form>
+</div>

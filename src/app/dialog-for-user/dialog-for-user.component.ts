@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgForm, FormsModule } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog'; // Importiere MatDialog
+import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
   selector: 'app-dialog-for-user',
@@ -11,13 +13,19 @@ import { NgForm, FormsModule } from '@angular/forms';
 })
 export class DialogForUserComponent {
 
-  onSubmit(ngForm: NgForm){
+  constructor(private dialog: MatDialog){}
+
+  login(ngForm: NgForm){
     this.resetForm(ngForm);
   }
 
   resetForm(ngForm: NgForm) {
     // Setze die Formular-Daten zurück
     ngForm.resetForm();
+  }
+
+  openAddUserDialog(){
+    this.dialog.open(DialogAddUserComponent)
   }
 
 }

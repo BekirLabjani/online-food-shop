@@ -1,10 +1,10 @@
 <div class="content">
-  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
     <input type="email" placeholder="E-mail Adresse eingeben"/>
     <input type="password" placeholder="Passwort eingeben"/>
     <a href="#">Passwort vergessen</a>
     <button type="submit">Login</button>
-    <button>Registrieren</button>
+    <button (click)="openAddUserDialog()">Registrieren</button>
   </form>
   <div class="flex">
     <div class="vertical-line"></div>

@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isUserLoggedIn = false;
   }
 
-  openAddUserDialog(){
+  openForUserDialog(){
     this.dialog.open(DialogForUserComponent)
   }
 }
