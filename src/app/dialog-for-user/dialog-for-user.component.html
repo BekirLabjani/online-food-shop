@@ -1,7 +1,7 @@
 <div class="content">
   <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
-    <input type="email" placeholder="E-mail Adresse eingeben"/>
-    <input type="password" placeholder="Passwort eingeben"/>
+    <input type="email" placeholder="E-mail Adresse eingeben" [(ngModel)]="user.email" name="email"/>
+    <input type="password" placeholder="Passwort eingeben" [(ngModel)]="user.password" name="password"/>
     <a href="#">Passwort vergessen</a>
     <button type="submit">Login</button>
     <button (click)="openAddUserDialog()">Registrieren</button>
