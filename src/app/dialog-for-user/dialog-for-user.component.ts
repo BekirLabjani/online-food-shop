@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NgForm, FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'; // Importiere MatDialog
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+
 import { Userdata } from '../../models/userdata.class';
 import { getAuth, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.class';
 import { GeneralFunctionsService } from '../services/general-functions.service';
+import { ProfileComponent } from '../profile/profile.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ import { GeneralFunctionsService } from '../services/general-functions.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './dialog-for-user.component.html',
-  styleUrl: './dialog-for-user.component.scss'
+  styleUrl: './dialog-for-user.component.scss',
 })
 export class DialogForUserComponent {
 
@@ -27,7 +29,7 @@ export class DialogForUserComponent {
     password: ''
   }
 
-  constructor(private dialog: MatDialog, private router: Router, private service: GeneralFunctionsService, private dialogRef: MatDialogRef<DialogForUserComponent>){
+  constructor(private dialog: MatDialog, private profile: ProfileComponent, private router: Router, private service: GeneralFunctionsService, private dialogRef: MatDialogRef<DialogForUserComponent>){
   }
 
   async login(ngForm: NgForm){
@@ -66,6 +68,8 @@ export class DialogForUserComponent {
       const user = users[i];
       if(email == user.email){
         this.id = user.id;
+        debugger;
+        this.profile.showId(this.id);
         console.log(this.id);
         this.closeDialog();
         this.router.navigateByUrl('/main-page/' + this.id);

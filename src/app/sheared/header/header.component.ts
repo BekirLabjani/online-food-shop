@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BasketListComponent } from "../basket-list/basket-list.component";
 import { Observable, Subscription } from 'rxjs';
 import { CartService } from '../../services/cart.service';
+import { GeneralFunctionsService } from '../../services/general-functions.service';
 import { map, startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -33,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     avatar: 'assets/img/user-avatar.png'
   };
 
-  constructor(private cartService: CartService, private dialog: MatDialog) {
+  constructor(private cartService: CartService, private dialog: MatDialog, private generalService: GeneralFunctionsService ) {
     // Berechnung der Gesamtanzahl der Artikel im Warenkorb
     this.cartItemCount$ = this.cartService.cartItems$.pipe(
       map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0)),
@@ -68,8 +69,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   goToProfile() {
-    // Navigation zur Profilseite
-    console.log('Navigiere zur Profilseite');
+    this.generalService.openProfile();
   }
 
   logout() {

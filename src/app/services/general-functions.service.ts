@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection, onSnapshot } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
 import { DialogForUserComponent } from '../dialog-for-user/dialog-for-user.component';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class GeneralFunctionsService implements OnInit {
   users: any[] = [];
   private unsubscribe: (() => void) | null = null; // Variable für das Beenden des Abonnements
 
-  constructor(private firestore: Firestore) {
+  constructor(private firestore: Firestore, private router: Router) {
    }
 
    ngOnInit(): void {
@@ -40,6 +41,10 @@ export class GeneralFunctionsService implements OnInit {
         reject(error); // 🔴 Promise wird bei einem Fehler abgelehnt
       });
     });
+  }
+
+  openProfile() {
+    this.router.navigateByUrl('/profile');
   }
 
 }
