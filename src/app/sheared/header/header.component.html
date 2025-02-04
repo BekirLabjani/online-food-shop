@@ -1,5 +1,4 @@
 <header class="header-container">
-  <img (click)="openForUserDialog()" class="user-icon" src="assets/img/icons/user.png" alt="User">
   <div class="logo">
       <img src="assets/logo.png" routerLink="/main-page" alt="Shop Logo" />
   </div>
@@ -11,44 +10,42 @@
       <input type="text" placeholder="Search for products..." />
       <button class="search-button">Search</button>
   </div>
-  <div class="user-section">
+  
+   <div class="user-section">
       <div class="user-info" *ngIf="isUserLoggedIn">
-          <img [src]="user.avatar || 'assets/default-avatar.png'" alt="Avatar" class="user-avatar" />
-          <span class="user-name">{{ user.name }}</span>
+          <span class="user-name">{{ shortenedName }}</span>
           <div class="dropdown">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">▼</button>
+              <!-- <button class="dropdown-toggle" (click)="toggleDropdown()">▼</button> -->
               <div class="dropdown-menu" *ngIf="isDropdownOpen">
-                  <button (click)="goToProfile()">Profil</button>
-                  <button (click)="logout()">Logout</button>
+                  <!-- <button (click)="goToProfile()">Profil</button>
+                  <button (click)="logout()">Logout</button> -->
               </div>
           </div>
       </div>
-      <div *ngIf="!isUserLoggedIn">
-          <button routerLink="/login" class="login-button">Login</button>
+       <div *ngIf="!isUserLoggedIn">
+        <button mat-flat-button (click)="openDialog()" class="logIn">Log In</button>
       </div>
-  </div>
-  <div class="basket">
+  </div> 
+ <!-- <div class="basket">
       <button mat-fab extended (click)="toggleSidebar()" aria-label="Open Cart">
           <mat-icon>shopping_basket</mat-icon>
-          <!-- Dynamische Anzeige der Gesamtsumme mit Fallback -->
           <ng-container *ngIf="cartTotal$ | async as total; else noTotal">
             {{ total | currency:'EUR' }}
           </ng-container>
           <ng-template #noTotal>
             € 00,00
           </ng-template>
-          <!-- Optionale Anzeige der Anzahl der Artikel -->
           <ng-container *ngIf="cartItemCount$ | async as count">
             <span *ngIf="count > 0" class="cart-count">
               {{ count }}
             </span>
           </ng-container>
       </button>
-  </div>
+  </div> -->
 </header>
-<div class="sidebar" [class.open]="isSidebarOpen">
-  <app-basket-list [isSidebarOpen]="isSidebarOpen" (closeSidebarEvent)="closeSidebar()"></app-basket-list>
-</div>
+<!-- <div class="sidebar" [class.open]="isSidebarOpen"> -->
+  <!-- <app-basket-list [isSidebarOpen]="isSidebarOpen" (closeSidebarEvent)="closeSidebar()"></app-basket-list> -->
+<!-- </div> -->
 
 <!-- Overlay -->
-<div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+<!-- <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div> -->

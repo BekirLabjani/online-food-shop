@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { GeneralFunctionsService } from '../services/general-functions.service';
 import { CommonModule } from '@angular/common';
 import { DialogForUserComponent } from '../dialog-for-user/dialog-for-user.component';
@@ -14,9 +14,11 @@ import { DialogForUserComponent } from '../dialog-for-user/dialog-for-user.compo
   providedIn: 'root',
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
- 
+
+
+
   private dialogForUser: DialogForUserComponent | null = null;
 
   constructor(private service: GeneralFunctionsService){
@@ -27,5 +29,10 @@ export class ProfileComponent {
     
   }
 
-
+  ngOnInit(): void {
+   
 }
+  
+}
+
+

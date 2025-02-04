@@ -1,20 +1,33 @@
 .main-page {
-    padding-top: 50px;
-    padding-inline: 20px;
-}
-.colum-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.mini-card-component{
+    height: calc(100vh - 100px);
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    margin: auto;
-   
+    max-width: 100%;
+    background-color: gray;
 }
 
+.greenting-container {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    padding-inline: 100px;
+    gap: 50px;
+}
 
+.greeting{
+    
+    >h1{
+        margin: 0;
+        font-weight: bolder;
+    }
+}
 
+.username {
+    font-size: 25px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.four-category-section{
+    height: 400px;
+}

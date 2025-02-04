@@ -12,38 +12,38 @@ import { Subscription } from 'rxjs';
   styleUrl: './basket-list.component.scss'
 })
 export class BasketListComponent implements OnInit , OnDestroy {
-  @Input() isSidebarOpen: boolean = false;
-  @Output() closeSidebarEvent: EventEmitter<void> = new EventEmitter<void>();
-  deliveryFee: number = 4.99; // Feste Liefergebühr
+  // @Input() isSidebarOpen: boolean = false;
+  // @Output() closeSidebarEvent: EventEmitter<void> = new EventEmitter<void>();
+  // deliveryFee: number = 4.99; // Feste Liefergebühr
 
 
-  cartItems: PrdctList[] = [];
-  private cartSubscription!: Subscription;
+  // cartItems: PrdctList[] = [];
+  // private cartSubscription!: Subscription;
 
-  constructor(private cartService: CartService) {}
+  // constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
-      this.cartItems = items;
-    });
+    // this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
+    //   this.cartItems = items;
+    // });
   }
 
   ngOnDestroy(): void {
-    if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
-    }
+    // if (this.cartSubscription) {
+    //   this.cartSubscription.unsubscribe();
+    // }
   }
 
-  removeItem(productId: number) {
-    this.cartService.removeFromCart(productId);
-  }
+  // removeItem(productId: number) {
+  //   this.cartService.removeFromCart(productId);
+  // }
 
-  getTotalPrice(): number {
-    return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }
+  // getTotalPrice(): number {
+  //   return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  // }
   
   
-  closeSidebar() {
-    this.closeSidebarEvent.emit();
-  }
+  // closeSidebar() {
+  //   this.closeSidebarEvent.emit();
+  // }
 }

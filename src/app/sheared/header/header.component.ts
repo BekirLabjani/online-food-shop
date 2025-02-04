@@ -9,8 +9,8 @@ import { GeneralFunctionsService } from '../../services/general-functions.servic
 import { map, startWith } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { DialogForUserComponent } from '../../dialog-for-user/dialog-for-user.component';
 import { MatDialog } from '@angular/material/dialog'; // Importiere MatDialog
+import { LoginComponent } from '../../authentication/login/login.component';
 
 
 @Component({
@@ -21,64 +21,91 @@ import { MatDialog } from '@angular/material/dialog'; // Importiere MatDialog
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  isSidebarOpen = false;
-  cartItemCount$: Observable<number>;
-  cartTotal$: Observable<number>;
-  private cartSubscription!: Subscription;
+  // isSidebarOpen = false;
+  // cartItemCount$: Observable<number>;
+  // cartTotal$: Observable<number>;
+  // private cartSubscription!: Subscription;
 
-  isUserLoggedIn = true; // Zustand, ob der Benutzer eingeloggt ist
+  isUserLoggedIn = false; // Zustand, ob der Benutzer eingeloggt ist
   isDropdownOpen = false; // Zustand des Dropdown-Menüs
 
   user = {
-    name: 'Max Mustermann',
+    firstname: 'Bekir',
+    lastname: 'Labjani',
     avatar: 'assets/img/user-avatar.png'
   };
 
+  shortenedName: string = '';
   constructor(private cartService: CartService, private dialog: MatDialog, private generalService: GeneralFunctionsService ) {
     // Berechnung der Gesamtanzahl der Artikel im Warenkorb
-    this.cartItemCount$ = this.cartService.cartItems$.pipe(
-      map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0)),
-      startWith(0) // Startet mit 0, falls der Warenkorb leer ist
-    );
+    // this.cartItemCount$ = this.cartService.cartItems$.pipe(
+    //   map(items => items.reduce((count, item) => count + (item.quantity ?? 0), 0)),
+    //   startWith(0) // Startet mit 0, falls der Warenkorb leer ist
+    // );
 
     // Berechnung der Gesamtsumme der Warenkorbsprodukte
-    this.cartTotal$ = this.cartService.cartItems$.pipe(
-      map(items => items.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 0)), 0)),
-      startWith(0) // Startet mit 0, falls der Warenkorb leer ist
-    );
+    // this.cartTotal$ = this.cartService.cartItems$.pipe(
+    //   map(items => items.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 0)), 0)),
+    //   startWith(0) // Startet mit 0, falls der Warenkorb leer ist
+    // );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.formatUserName();
+  }
 
   ngOnDestroy(): void {
-    if (this.cartSubscription) {
-      this.cartSubscription.unsubscribe();
-    }
+    // if (this.cartSubscription) {
+    //   this.cartSubscription.unsubscribe();
+    // }
+
   }
 
-  toggleSidebar() {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
+  // toggleSidebar() {
+  //   this.isSidebarOpen = !this.isSidebarOpen;
+  // }
 
-  closeSidebar() {
-    this.isSidebarOpen = false;
-  }
+  // closeSidebar() {
+  //   this.isSidebarOpen = false;
+  // }
 
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
+  // toggleDropdown() {
+  //   this.isDropdownOpen = !this.isDropdownOpen;
+  // }
 
-  goToProfile() {
-    this.generalService.openProfile();
-  }
+  // goToProfile() {
+  //   this.generalService.openProfile();
+  // }
 
-  logout() {
-    // Logout-Logik implementieren
-    console.log('Benutzer wurde ausgeloggt');
-    this.isUserLoggedIn = false;
-  }
+  // logout() {
+  //   // Logout-Logik implementieren
+  //   console.log('Benutzer wurde ausgeloggt');
+  //   this.isUserLoggedIn = false;
+  // }
 
-  openForUserDialog(){
-    this.dialog.open(DialogForUserComponent)
+  // openForUserDialog(){
+  //   // this.dialog.open()
+  // }
+
+  // formatUserName(): void {
+  //   console.log('Firstname:', this.user.firstname);
+  //   console.log('Lastname:', this.user.lastname);
+  //   this.shortenedName = `${this.user.firstname.slice(0, 1)} ${this.user.lastname.slice(0, 1)}`;
+  //   console.log('Shortened Name:', this.shortenedName);
+  // }
+
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+      }
+    });
   }
 }
+

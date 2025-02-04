@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection, onSnapshot } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
-import { DialogForUserComponent } from '../dialog-for-user/dialog-for-user.component';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class GeneralFunctionsService implements OnInit {
 
-  private dialogForUser: DialogForUserComponent | null = null;
+  private dialogForUser:  | null = null;
   userEmails: any [] = [];
   users: any[] = [];
   private unsubscribe: (() => void) | null = null; // Variable für das Beenden des Abonnements

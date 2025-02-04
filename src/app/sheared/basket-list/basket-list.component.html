@@ -1,7 +1,7 @@
-<!-- src/app/sidebar/sidebar.component.html -->
-<div class="sidebar" [class.open]="isSidebarOpen">
+src/app/sidebar/sidebar.component.html
+<!-- <div class="sidebar" [class.open]="isSidebarOpen"> -->
   <!-- Close-Button mit Bild -->
-  <div class="bastek-case-container">
+  <!-- <div class="bastek-case-container">
     <h2>Warenkorb</h2>
     <button class="close-button" (click)="closeSidebar()">
       <img src="./assets/img/header-icon/remove-green.svg" alt="Close" />
@@ -35,7 +35,7 @@
       </button>
     </li>
     <div class="line" *ngIf="cartItems.length > 0"></div>
-  </ul>
+  </ul> -->
 
   <ng-template #emptyBasket>
     <div class="empty-basket-container">
@@ -47,7 +47,7 @@
 
   <!-- Gesamtübersicht -->
   <div class="basket-summary">
-    <div class="summary-row basket-text">
+    <!-- <div class="summary-row basket-text">
       <span>Warenkorb:</span>
       <span>{{ getTotalPrice() | currency:'EUR' }}</span>
     </div>
@@ -65,5 +65,5 @@
       class="checkout-button">
       Weiter zur Kasse
     </button>
-  </div>
+  </div> -->
 </div>
