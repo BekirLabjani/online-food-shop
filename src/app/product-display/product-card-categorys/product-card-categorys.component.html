@@ -1,9 +1,5 @@
 <div class="card-container">
   @for (category of categories; track $index) {
-    <div  class="card">
-      <img [src]="category.imageUrl" [alt]="category.name" />
-      <div class="card-text">{{ category.name }}</div>
-    </div>
-   }
+    <app-card class="cards" [category]="category"></app-card>
+  }
 </div>
-

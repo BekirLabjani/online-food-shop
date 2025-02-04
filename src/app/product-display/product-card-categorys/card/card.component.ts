@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 
 @Component({
@@ -11,22 +11,6 @@ import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 })
 export class CardComponent {
 
-  categories: any[] = []; // 🔹 Array zum Speichern der geladenen Kategorien
+  @Input() category: any; // 🔹 Kategorie-Daten aus der Eltern-Komponente empfangen
 
-constructor(private firestore: Firestore) {}
-
-  // 🔹 Kategorien aus Firestore abrufen
-  async getCategories() {
-    const categoriesCollection = collection(this.firestore, 'categories');
-    const querySnapshot = await getDocs(categoriesCollection);
-
-    // 🔹 Die Daten in ein Array umwandeln
-    const categories = querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-
-    console.log('Kategorien geladen:', categories);
-    return categories;
-  }
 }
