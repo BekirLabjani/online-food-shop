@@ -1,1 +1,22 @@
-<p>product-card works!</p>
+<div class="product-card-container">
+    <!-- Ladeanzeige -->
+    <div *ngIf="isLoading">Produkte werden geladen...</div>
+  
+    <!-- Produkte anzeigen -->
+    <div *ngIf="!isLoading && products.length > 0">
+      <div *ngFor="let product of products" class="product-card">
+        <img [src]="product.imageUrl" [alt]="product.name" class="product-image" />
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <p><strong>Preis:</strong> {{ product.price | currency:'EUR' }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Keine Produkte gefunden -->
+    <div *ngIf="!isLoading && products.length === 0">
+      <p>Keine Produkte gefunden.</p>
+    </div>
+  </div>
+  

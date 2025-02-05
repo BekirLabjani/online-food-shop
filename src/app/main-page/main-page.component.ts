@@ -18,6 +18,7 @@ import { collection, doc, Firestore, setDoc } from '@angular/fire/firestore';
     HttpClientModule,
     HeaderComponent,
     ProductCardCategorysComponent,
+    ProductCardComponent
   ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],

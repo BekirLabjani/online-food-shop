@@ -2,14 +2,14 @@
   display: flex;
   margin: auto;
   width: 95%;
-  gap: 50px;
-  
+  gap: 50px; 
   }
 
   .cards {
     position: relative;
     width: calc(25% - 20px); /* 4 Karten nebeneinander */
     height: 150px;
+    min-width: 300px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
